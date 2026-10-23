@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#100d1b">
+<title>Happy Birthday, Rabbit 🤍</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@300;400;500;600&display=swap');
+:root{--bg:#100d1b;--pink:#f0c4d4;--gold:#d9bd8a;--cream:#fff8f2;--muted:#c0b7c7}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;min-height:100vh;padding:35px 15px;display:flex;justify-content:center;align-items:center;overflow-x:hidden;color:var(--cream);font-family:Manrope,sans-serif;background:radial-gradient(ellipse at 15% 10%,#51334b55,transparent 38%),radial-gradient(ellipse at 90% 75%,#2d315455,transparent 36%),var(--bg)}
+
+.intro-screen{
+  position:relative;z-index:5;min-height:calc(100vh - 70px);width:min(700px,100%);
+  display:flex;align-items:center;justify-content:center;text-align:center;
+  margin:auto;padding:28px;
+}
+.intro-card{
+  width:100%;padding:clamp(36px,8vw,72px) 24px;
+  border:1px solid #d9bd8a55;border-radius:28px;
+  background:linear-gradient(145deg,#211b2df2,#15121ff5 65%,#1a1728f5);
+  box-shadow:0 30px 100px #0007,inset 0 1px #ffffff12;
+  position:relative;
+}
+.intro-card:before{content:"";position:absolute;inset:10px;border:1px solid #e4c79a26;border-radius:20px;pointer-events:none}
+.intro-symbol{font-size:38px;color:#d9bd8a;margin-bottom:22px;animation:twinkle 3s ease-in-out infinite alternate}
+.intro-title{font:500 clamp(42px,8vw,70px)/1 'Cormorant Garamond',serif;margin:0 0 18px;color:#fff8f2}
+.intro-title span{display:block;color:#f0c4d4;font-style:italic;margin-top:8px}
+.intro-text{font:italic 21px/1.6 'Cormorant Garamond',serif;color:#d9cfdd;max-width:420px;margin:0 auto 28px}
+.open-btn{position:relative;z-index:1;display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 25px;border:1px solid #d9bd8a99;border-radius:999px;background:#ffffff08;color:#fff8f2;font:500 11px Manrope,sans-serif;letter-spacing:1.2px;cursor:pointer;transition:.25s}
+.open-btn:hover{background:#f0c4d414;border-color:#f0c4d4;transform:translateY(-2px)}
+.page{display:none;animation:fadeIn .8s ease}
+.page.opened{display:block}
+body{flex-direction:column}
+@media(max-width:560px){.intro-screen{min-height:calc(100vh - 36px);padding:12px}.intro-card{border-radius:22px}.intro-card:before{inset:7px;border-radius:16px}}
+
+#sky{position:fixed;inset:0;overflow:hidden;pointer-events:none}
+.star{position:absolute;color:#fff4dd;opacity:.4;animation:twinkle 4s ease-in-out infinite alternate}
+@keyframes twinkle{from{opacity:.15;transform:scale(.8)}to{opacity:.85;transform:scale(1.2)}}
+.orb{position:fixed;width:240px;height:240px;border-radius:50%;filter:blur(90px);opacity:.12;pointer-events:none}
+.orb.one{background:#c46a98;top:-90px;right:-60px}.orb.two{background:#7582c7;bottom:-100px;left:-70px}
+.page{position:relative;z-index:1;width:min(900px,100%)}
+.topline{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:0 5px 15px;color:#c5b7c8;font-size:10px;letter-spacing:2px;text-transform:uppercase}
+.topline .dot{color:var(--gold);font-size:17px}
+.card{position:relative;overflow:hidden;border:1px solid #e5c8d322;border-radius:30px;background:linear-gradient(145deg,#211b2df0,#15121ff5 65%,#1a1728f5);box-shadow:0 30px 100px #0007,inset 0 1px #ffffff12}
+.card:before{content:"";position:absolute;inset:10px;border:1px solid #e4c79a26;border-radius:23px;pointer-events:none}
+.hero{text-align:center;padding:clamp(35px,7vw,70px) 20px 30px}
+.kicker{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--gold)}
+h1{font:500 clamp(48px,9vw,88px)/.95 'Cormorant Garamond',serif;letter-spacing:-1.5px;margin:24px 0 16px}
+h1 span{display:block;color:var(--pink);font-style:italic;font-weight:400;margin-top:10px}
+.hero-note{font:italic 20px/1.6 'Cormorant Garamond',serif;color:#d9cfdd;max-width:460px;margin:0 auto}
+.photo-area{display:flex;justify-content:center;padding:10px 24px 38px}
+.photo-frame{position:relative;width:clamp(210px,36vw,280px);height:clamp(260px,43vw,340px);padding:8px;border-radius:160px 160px 22px 22px;border:1px solid #d9bd8a9c;background:linear-gradient(145deg,#f0d9ac30,#ffffff05);box-shadow:0 0 0 7px #d9bd8a0b,0 20px 60px #0006}
+.photo-frame img{width:100%;height:100%;display:block;object-fit:cover;object-position:center;border-radius:inherit}
+.divider{display:flex;align-items:center;justify-content:center;gap:16px;color:var(--gold);margin:0 auto 30px}
+.divider:before,.divider:after{content:"";height:1px;width:68px;background:linear-gradient(90deg,transparent,#d9bd8a88)}
+.divider:after{transform:rotate(180deg)}
+.message{max-width:650px;margin:0 auto;padding:0 28px 40px;text-align:center}
+.message p{font:400 clamp(20px,3vw,24px)/1.72 'Cormorant Garamond',serif;color:#f5eaf0;margin:0 0 22px}
+.signature{color:var(--pink);font:italic 28px 'Cormorant Garamond',serif;margin-top:30px}
+.surprise-wrap{text-align:center;padding:0 20px 40px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1px solid #d9bd8a70;border-radius:999px;padding:14px 24px;color:var(--cream);background:#ffffff08;font:500 11px Manrope,sans-serif;letter-spacing:.8px;cursor:pointer;transition:.25s}
+.btn:hover{background:#f0c4d414;border-color:var(--pink);transform:translateY(-2px)}
+#surprise{display:none;max-width:470px;margin:22px auto 0;color:var(--gold);font:italic 23px/1.7 'Cormorant Garamond',serif;animation:fadeIn .7s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+.music-control{margin:0 auto 28px;text-align:center;position:relative;z-index:2}
+.music-btn{display:inline-flex;align-items:center;gap:9px;padding:11px 19px;border:1px solid #d9bd8a70;border-radius:999px;color:#fff8f2;background:#ffffff08;font:500 10px Manrope,sans-serif;letter-spacing:1px;cursor:pointer;transition:.25s}
+.music-btn:hover{border-color:#f0c4d4;background:#f0c4d414;transform:translateY(-2px)}
+.music-status{margin-top:9px;color:#c0b7c7;font-size:10px;letter-spacing:.5px}
+
+.bottom{border-top:1px solid #ffffff12;padding:20px 24px;text-align:center;color:#9f95aa;font-size:9px;letter-spacing:2px;text-transform:uppercase}
+@media(max-width:560px){body{padding:18px 10px}.topline{font-size:8px;letter-spacing:1px}.card{border-radius:23px}.card:before{inset:7px;border-radius:17px}.hero{padding-top:45px}.kicker{font-size:9px;letter-spacing:2px}.message{padding:0 22px 34px}.btn{font-size:10px;padding:13px 18px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div id="sky"></div><div class="orb one"></div><div class="orb two"></div>
+
+<section class="intro-screen" id="introScreen">
+  <div class="intro-card">
+    <div class="intro-symbol">✧ ♡ ✧</div>
+    <p class="kicker">A little something for you</p>
+    <h1 class="intro-title">Open the surprise,<span>Rabbit!</span></h1>
+    <p class="intro-text">A tiny birthday surprise is waiting for you. Tap below when you're ready. 🤍</p>
+    <button class="open-btn" id="openSurprise" type="button">OPEN YOUR SURPRISE ✦</button>
+  </div>
+</section>
+
+<main class="page" id="birthdayPage">
+  <div class="topline"><span>A small wish, from afar</span><span class="dot">✧</span><span>For a special day</span></div>
+  <article class="card">
+    <section class="hero">
+      <p class="kicker">Today deserves a little magic</p>
+      <h1>Happy Birthday<span>Rabbit</span></h1>
+      <p class="hero-note">Some memories stay gently with us, even when life takes us different ways.</p>
+    </section>
+    <section class="photo-area">
+      <div class="photo-frame">
+        <img src="Sandhiya.jpeg" alt="A special birthday memory" onerror="this.style.display='none';document.getElementById('photoFallback').style.display='flex'">
+        <div id="photoFallback" style="display:none;position:absolute;inset:8px;border-radius:inherit;background:linear-gradient(160deg,#34293b,#1c1a2c);align-items:center;justify-content:center;flex-direction:column;text-align:center;padding:18px;color:#d9bd8a;font-family:'Cormorant Garamond',serif;font-size:25px">A memory, framed <span style="font-size:14px;color:#c0b7c7;margin-top:10px">Place Sandhiya.jpeg beside this HTML file</span></div>
+      </div>
+    </section>
+    <div class="divider">✦</div>
+    <section class="message">
+      <p>On your special day, I hope life brings you peace, good health, happiness, and little reasons to smile when you least expect them.</p>
+      <p>We may not talk anymore, and our lives may have taken different paths. Still, the good memories we shared will always be a part of my story, and I’ll remain grateful for those moments.</p>
+      <p>May this year bring you closer to your dreams, surround you with kind people, and give you strength for every new beginning.</p>
+      <p>Keep shining in your own way, even on the quietest nights. I hope life is gentle with you, wherever it takes you. 🌙</p>
+      <div class="signature">Wishing you nothing but the best. 🤍</div>
+    </section>
+    <section class="surprise-wrap">
+      <button class="btn" id="surpriseButton" type="button">A little birthday wish ✧</button>
+      <p id="surprise">No expectations, and no need to reply. Just a sincere wish that today brings you a little happiness and the year ahead treats you kindly.</p>
+    </section>
+    <footer class="bottom">With kindness · From a distance · Always take care</footer>
+  </article>
+</main>
+<audio id="bgMusic" loop preload="metadata"><source src="./bgm.mp4" type="audio/mp4">Your browser does not support this audio file.</audio>
+<script>
+const sky=document.getElementById("sky");
+for(let i=0;i<72;i++){const star=document.createElement("span");star.className="star";star.textContent=Math.random()>.55?"✦":"·";star.style.left=Math.random()*100+"%";star.style.top=Math.random()*100+"%";star.style.fontSize=(7+Math.random()*10)+"px";star.style.animationDelay=Math.random()*5+"s";sky.appendChild(star)}
+const button=document.getElementById("surpriseButton"),surprise=document.getElementById("surprise");
+button.addEventListener("click",()=>{const visible=surprise.style.display==="block";surprise.style.display=visible?"none":"block";button.textContent=visible?"A little birthday wish ✧":"Close birthday wish ✧";});
+const music = document.getElementById("bgMusic");
+music.volume = 0.45;
+
+document.getElementById("openSurprise").addEventListener("click", () => {
+  // Reveal the birthday page and start music directly from the visitor's click.
+  document.getElementById("introScreen").style.display = "none";
+  document.getElementById("birthdayPage").classList.add("opened");
+  music.play().catch(() => {
+    // Some browsers or unsupported media formats may still prevent playback.
+  });
+});
+</script>
+</body>
+</html>
